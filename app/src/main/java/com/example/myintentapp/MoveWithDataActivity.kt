@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 
 class MoveWithDataActivity : AppCompatActivity() {
+    // create const variable to get data
     companion object {
         const val EXTRA_AGE = "extra_age"
         const val EXTRA_NAME = "extra_name"
@@ -14,10 +15,13 @@ class MoveWithDataActivity : AppCompatActivity() {
         setContentView(R.layout.activity_move_with_data)
         val tvDataReceived: TextView = findViewById(R.id.tv_received)
 
+        // received data
         val name = intent.getStringExtra(EXTRA_NAME)
         val age = intent.getIntExtra(EXTRA_AGE, 0)
 
         val text = "Name : $name, \nAge : $age"
+
+        // assignment text to Text View
         tvDataReceived.text = text
     }
 }
