@@ -13,15 +13,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // initialized
         val btnMoveActivity: Button = findViewById(R.id.btn_move_activity)
         val btnMoveData: Button = findViewById(R.id.btn_move_data)
         val btnDialNumber: Button = findViewById(R.id.btn_dial_number)
 
+        // move to MoveActivity with intent
         btnMoveActivity.setOnClickListener {
             val intent = Intent(this, MoveActivity::class.java)
             startActivity(intent)
         }
 
+        // move with data
         btnMoveData.setOnClickListener {
             val intent = Intent(this, MoveWithDataActivity::class.java)
             intent.putExtra(MoveWithDataActivity.EXTRA_NAME, "Fiki Alamsyah")
@@ -29,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // implicit intent to call number
         btnDialNumber.setOnClickListener {
             val phoneNumber = "08124678421"
             val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel: $phoneNumber"))
